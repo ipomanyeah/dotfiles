@@ -1,6 +1,10 @@
 # Created by newuser for 5.9
 
+echo '\n'
 fastfetch
+echo '\n'
+fortune
+echo '\n'
 
 echo 'export QT_QPA_PLATFORMTHEME=qt5ct' >> ~/.profile
 
@@ -16,8 +20,9 @@ function y() {
 # --- Environment ---
 export PATH=$PATH:/home/hp/.local/bin
 export PATH="$PATH:/home/hp/cp/"
-export EDITOR=nvim
 export PATH=$PATH:$(go env GOPATH)/bin
+export PATH="$PATH:$HOME/.spicetify"
+export EDITOR=nvim
 
 # --- Oh My Posh init ---
 eval "$(oh-my-posh init zsh)"
@@ -29,3 +34,4 @@ bindkey '\e[1;5C' forward-word
 
 # Ctrl+Backspace word delete (if it sends ^H)
 bindkey '^H' backward-kill-word
+
