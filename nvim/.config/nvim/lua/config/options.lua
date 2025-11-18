@@ -3,4 +3,11 @@
 -- Add any additional options here
 
 vim.opt.clipboard = "unnamedplus"
-vim.g.autoformat = false
+
+-- Disable only for C++
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = { "cpp", "cxx", "cc", "hpp", "hxx" },
+  callback = function()
+    vim.g.autoformat = false
+  end,
+})

@@ -1,0 +1,122 @@
+/* Waybar background */
+window#waybar {
+  background-color: rgba(0, 0, 0, .7);
+  border-radius: 3px;
+  border-color: #7AA2F7;
+}
+
+/* Workspace buttons */
+#workspaces button {
+  background-color: #15161E;
+  color: #ffffff;
+  box-shadow: none;
+  text-shadow: none;
+  border-radius: 3px;
+  margin-left: 5px;
+  margin-right: 5px;
+  border-color: white;
+}
+
+/* Workspace labels inside buttons */
+#workspaces .workspace-label {
+  padding: 0px;
+  font-family: "JetBrainsMono Nerd Font";
+  background-color: transparent;
+}
+
+/* Taskbar windows (all) */
+#workspaces .taskbar-window {
+  font-weight: normal;
+  background-color: transparent;
+}
+
+/* Visible workspace styling */
+#workspaces button.visible .taskbar-window,
+#workspaces button.visible .workspace-label {
+  border-radius: 3px;
+  background-color: #363B55;
+  border: 1px solid #7AA2F7;
+  margin-left: 1px;
+  margin-right: 1px;
+}
+
+/* Workspace label in visible workspace */
+#workspaces button.visible .workspace-label {
+  padding: 0px;
+  font-family: "JetBrainsMono Nerd Font";
+  background-color: transparent;
+  border: 0;
+}
+
+/* Focused workspace button (workspace itself) */
+#workspaces button.focused {
+  background-color: white;
+}
+
+/* Focused app in taskbar */
+#workspaces button.visible .taskbar-window.active {
+  background-color: rgba(121, 200, 247, 0.15);
+  color: black;
+  border: 1px solid white;
+}
+
+/* Transparent images inside taskbar windows */
+#workspaces .taskbar-window image {
+  background-color: transparent;
+}
+
+/* Urgent window styling */
+#workspaces button.urgent {
+  background-color: lightyellow;
+}
+
+
+.modules-right {
+  font-family: "JetBrainsMono Nerd Font";
+}
+
+label.module {
+  margin-left: 5px;
+  margin-right: 5px;
+  background-color: #15161E;
+  padding-left: 10px;
+  padding-right: 10px;
+  border: 1px solid white;
+  border-radius: 3px;
+}
+
+
+/* Remove padding/margins */
+#pulseaudio-slider,
+#backlight-slider {
+  padding: 0;
+  margin: 0;
+}
+
+/* Hide the slider handle */
+#pulseaudio-slider slider,
+#backlight-slider slider {
+  min-height: 1px;
+  min-width: 1px;
+  opacity: 0;
+  background-image: none;
+  border: none;
+  box-shadow: none;
+}
+
+/* Slider trough (background) */
+#pulseaudio-slider trough,
+#backlight-slider trough {
+  min-height: 10px;
+  min-width: 80px;
+  border-radius: 5px;
+  background: black;
+}
+
+/* Slider filled portion */
+#pulseaudio-slider highlight,
+#backlight-slider highlight {
+  min-width: 10px;
+  border-radius: 5px;
+  background: white;
+}
