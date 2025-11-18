@@ -11,10 +11,12 @@
     "pulseaudio",
     "pulseaudio/slider",
     "battery",
+    "network",
     "clock",
     "cpu",
     "memory",
     "disk",
+    "tray"
   ],
   "sway/window": {
     "max-length": 50
@@ -57,7 +59,6 @@
   "cpu": {
     "interval": 10,
     "format": "CPU: {}% ",
-    "max-length": 10
   },
   "hyprland/workspaces": {
     "format": "{icon}:{windows}",
@@ -72,10 +73,10 @@
   },
   "memory": {
     "interval": 10,
-    "format": "RAM: {percentage}%    ({used}GB / {total}GB)"
+    "format": "RAM: {percentage}%"
   },
   "disk": {
-    "format": "SSD: {used} / {total}, ({percentage_used}%) "
+    "format": "SSD: ({percentage_used}%) "
   },
   "pulseaudio": {
     "format": "{volume}% {icon}",
@@ -104,5 +105,17 @@
   },
   "backlight": {
     "format": "{percent}%  "
+  },
+  "network": {
+    "interface": "wlan0",
+    "format": "{ifname}",
+    "format-wifi": "{essid} ({signalStrength}%)  ",
+    "format-ethernet": "{ipaddr}/{cidr} 󰊗",
+    "format-disconnected": "", //An empty format will hide the module.
+    "tooltip-format": "{ifname} via {gwaddr} 󰊗",
+    "tooltip-format-wifi": "{essid} ({signalStrength}%) ",
+    "tooltip-format-ethernet": "{ifname} ",
+    "tooltip-format-disconnected": "Disconnected",
+    "on-click": "kitty nmtui",
   }
 }
