@@ -24,9 +24,6 @@ export PATH=$PATH:$(go env GOPATH)/bin
 export PATH="$PATH:$HOME/.spicetify"
 export EDITOR=nvim
 
-# --- Oh My Posh init ---
-eval "$(oh-my-posh init zsh)"
-
 # --- Keybindings ---
 # Ctrl+Arrow word movement
 bindkey '\e[1;5D' backward-word
