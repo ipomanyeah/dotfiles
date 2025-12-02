@@ -7,11 +7,14 @@ require("luasnip.loaders.from_lua").lazy_load({
 })
 
 local lspconfig = require("lspconfig")
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities.textDocument.completion.completionItem.snippetSupport = true
 
+-- Create capabilities and DISABLE snippet support BEFORE clangd setup
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities.textDocument.completion.completionItem.snippetSupport = false
+
+-- clangd without placeholders
 lspconfig.clangd.setup({
-  cmd = { "clangd", "--header-insertion=never" }, -- Disable auto #include
+  cmd = { "clangd", "--header-insertion=never" },
   capabilities = capabilities,
 })
 
@@ -29,3 +32,8 @@ vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
     })
   end,
 })
+-- Default options:
+require("kanagawa")
+
+-- setup must be called before loading
+vim.cmd("colorscheme kanagawa")
