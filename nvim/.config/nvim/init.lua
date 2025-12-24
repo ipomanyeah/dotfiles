@@ -34,6 +34,11 @@ vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
 })
 -- Default options:
 require("kanagawa")
+require("competitest").setup() -- to use default configuration
+require("compiler")
+require("overseer")
+require("cord")
 
 -- setup must be called before loading
-vim.cmd("colorscheme kanagawa")
+
+vim.cmd("colorscheme github_light_high_contrast")

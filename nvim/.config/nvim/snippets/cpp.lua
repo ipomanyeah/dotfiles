@@ -3,9 +3,8 @@ local s = ls.snippet
 local t = ls.text_node
 local i = ls.insert_node
 
--- define table of snippets
 local snippets = {
-  s("cp", {
+  s("cp2", {
     t({
       "#include <bits/stdc++.h>",
       "using namespace std;",
@@ -37,6 +36,27 @@ local snippets = {
     i(0),
     t({ "", "}" }),
   }),
+
+  s("cp", {
+    t({
+      "#include <bits/stdc++.h>",
+      "using namespace std;",
+      "template <typename T> using vec = vector<T>;",
+      "using ll = long long;",
+      "char el = '\\n';",
+      "",
+      "int main() {",
+      "  ios_base::sync_with_stdio(false);",
+      "  cin.tie(nullptr);",
+      "  cout.tie(nullptr);",
+      "",
+    }),
+    i(0),
+    t({
+      "",
+      "}",
+    }),
+  }),
 }
 
-return snippets -- <--- MUST return the table of snippets
+return snippets

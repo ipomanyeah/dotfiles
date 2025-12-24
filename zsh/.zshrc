@@ -7,6 +7,15 @@ fortune
 echo '\n'
 
 echo 'export QT_QPA_PLATFORMTHEME=qt5ct' >> ~/.profile
+echo -ne '\e[5 q'
+
+autoload -Uz vcs_info
+precmd() { vcs_info }
+
+zstyle ':vcs_info:git:*' formats '%b '
+
+setopt PROMPT_SUBST
+PROMPT='%F{green}%*%f %F{blue}%~%f %F{red}${vcs_info_msg_0_}%f$ '
 
 # --- Function to run yazi and change directory if needed ---
 function y() {
@@ -32,3 +41,6 @@ bindkey '\e[1;5C' forward-word
 # Ctrl+Backspace word delete (if it sends ^H)
 bindkey '^H' backward-kill-word
 
+
+# Created by `pipx` on 2025-12-07 12:28:25
+export PATH="$PATH:/home/dongfengpo/.local/bin"

@@ -11,3 +11,6 @@ vim.api.nvim_create_autocmd("FileType", {
     vim.g.autoformat = false
   end,
 })
+
+vim.o.exrc = true
+vim.o.secure = true

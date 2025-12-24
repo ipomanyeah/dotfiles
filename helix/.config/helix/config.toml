@@ -1,0 +1,15 @@
+theme = "github_dark_high_contrast"
+
+[editor]
+line-number = "relative"
+mouse = true
+middle-click-paste = true
+clipboard-provider = "wayland"
+
+[editor.cursor-shape]
+insert = "bar"
+normal = "block"
+select = "underline"
+
+[editor.file-picker]
+hidden = true
