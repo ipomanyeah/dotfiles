@@ -31,6 +31,7 @@ export PATH=$PATH:/home/hp/.local/bin
 export PATH="$PATH:/home/hp/cp/"
 export PATH=$PATH:$(go env GOPATH)/bin
 export PATH="$PATH:$HOME/.spicetify"
+export TERMINAL=kitty
 export EDITOR=nvim
 
 # --- Keybindings ---
@@ -41,6 +42,65 @@ bindkey '\e[1;5C' forward-word
 # Ctrl+Backspace word delete (if it sends ^H)
 bindkey '^H' backward-kill-word
 
+# BUILD SCRIPT FOR COMPETITVE PROGRAMMING
+build() {
+  if [[ $# -lt 1 ]]; then
+    echo "Usage:"
+    echo "  build <file.cpp>"
+    echo "  build <file.cpp> <input.txt>"
+    echo "  build <file.cpp> <input.txt> <output.txt>"
+    echo "  build <file.cpp> --only"
+    return 1
+  fi
+
+  local src="$1"
+  local base="${src%.cpp}"
+  local exe="./$base"
+
+  if [[ ! -f "$src" ]]; then
+    echo "Error: $src not found"
+    return 1
+  fi
+
+  local start=$SECONDS
+
+  echo "▶ Compiling $src ..."
+
+  clang++ \
+    -Wall \
+    -g \
+    -march=native \
+    -std=c++20 \
+    -pipe \
+    -fuse-ld=lld \
+    "$src" -o "$base"
+
+  local ret=$?
+  local elapsed=$((SECONDS - start))
+
+  if [[ $ret -ne 0 ]]; then
+    echo "✖ Compilation failed (${elapsed}s)"
+    return 1
+  fi
+
+  echo "✔ Compilation finished in ${elapsed}s → $exe"
+  echo -ne "\a"   # terminal bell
+
+  # compile only
+  if [[ "$2" == "--only" ]]; then
+    return 0
+  fi
+
+  # run
+  if [[ $# -eq 1 ]]; then
+    $exe
+  elif [[ $# -eq 2 ]]; then
+    $exe < "$2"
+  else
+    $exe < "$2" > "$3"
+  fi
+}
 
 # Created by `pipx` on 2025-12-07 12:28:25
 export PATH="$PATH:/home/dongfengpo/.local/bin"
+

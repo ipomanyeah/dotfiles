@@ -1,14 +1,15 @@
 /* Waybar background */
 window#waybar {
-  background-color: rgba(0, 0, 0, .7);
+  background-color: rgba(255, 255, 255, 0.01);
   border-radius: 3px;
   border-color: #7AA2F7;
+  padding: 1px
 }
 
 /* Workspace buttons */
 #workspaces button {
-  background-color: #15161E;
-  color: #ffffff;
+  background-color: rgba(21, 22, 30, 0.8);
+  color: white;
   box-shadow: none;
   text-shadow: none;
   border-radius: 3px;
