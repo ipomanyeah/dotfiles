@@ -1,123 +1,201 @@
-/* Waybar background */
-window#waybar {
-  background-color: rgba(255, 255, 255, 0.01);
-  border-radius: 3px;
-  border-color: #7AA2F7;
-  padding: 1px
+/* =======================
+   Control Text Color Fixes
+   ======================= */
+
+/* Make sure the text in all buttons is clear */
+#workspaces button {
+  color: #C0CAF5; /* Light grayish color for button text */
 }
 
-/* Workspace buttons */
+/* Make text in taskbar windows clearly visible */
+#workspaces .taskbar-window {
+  color: #C0CAF5;
+}
+
+/* Focused button text */
+#workspaces button.focused {
+  color: #15161E; /* Darker text for better contrast */
+}
+
+/* Visible workspace button text */
+#workspaces button.visible .workspace-label {
+  color: #C0CAF5;
+}
+
+/* Make sure the urgent workspace text is visible */
+#workspaces button.urgent {
+  color: #15161E;
+}
+
+/* =======================
+   Slider and Module Controls
+   ======================= */
+
+/* Make sure text and controls in modules are clear */
+label.module {
+  color: #C0CAF5;
+}
+
+/* Slider labels (if any) */
+#pulseaudio-slider,
+#backlight-slider {
+  color: #C0CAF5; /* Light text color for sliders */
+}
+
+/* Highlighted portion of the sliders to make it pop */
+#pulseaudio-slider highlight,
+#backlight-slider highlight {
+  color: #15161E; /* Dark text color to make it stand out against the light background */
+}
+
+/* =======================
+   Global Waybar Container
+   ======================= */
+window#waybar {
+  background-color: rgba(21, 22, 30, 0.6);
+  border-radius: 6px;
+  border: 1px solid #7AA2F7;
+  padding: 2px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
+}
+
+/* =======================
+   Workspaces
+   ======================= */
 #workspaces button {
-  background-color: rgba(21, 22, 30, 0.8);
-  color: white;
+  background-color: rgba(21, 22, 30, 0.85);
+  color: #C0CAF5;
   box-shadow: none;
   text-shadow: none;
-  border-radius: 3px;
-  margin-left: 5px;
-  margin-right: 5px;
-  border-color: white;
+  border-radius: 6px;
+  margin: 0 4px;
+  padding: 2px 6px;
+  border: 1px solid rgba(122, 162, 247, 0.3);
+  transition: all 0.2s ease;
 }
 
-/* Workspace labels inside buttons */
+/* Hover feedback */
+#workspaces button:hover {
+  background-color: rgba(54, 59, 85, 0.9);
+  border-color: #7AA2F7;
+}
+
+/* Workspace labels */
 #workspaces .workspace-label {
-  padding: 0px;
   font-family: "JetBrainsMono Nerd Font";
+  padding: 0;
   background-color: transparent;
 }
 
-/* Taskbar windows (all) */
-#workspaces .taskbar-window {
-  font-weight: normal;
-  background-color: transparent;
-}
-
-/* Visible workspace styling */
-#workspaces button.visible .taskbar-window,
-#workspaces button.visible .workspace-label {
-  border-radius: 3px;
+/* =======================
+   Visible Workspace
+   ======================= */
+#workspaces button.visible {
   background-color: #363B55;
-  border: 1px solid #7AA2F7;
-  margin-left: 1px;
-  margin-right: 1px;
+  border-color: #7AA2F7;
 }
 
-/* Workspace label in visible workspace */
-#workspaces button.visible .workspace-label {
-  padding: 0px;
-  font-family: "JetBrainsMono Nerd Font";
-  background-color: transparent;
-  border: 0;
-}
-
-/* Focused workspace button (workspace itself) */
+/* =======================
+   Focused Workspace
+   ======================= */
 #workspaces button.focused {
-  background-color: white;
+  background-color: #7AA2F7;
+  color: #15161E;
+  border-color: #7AA2F7;
 }
 
-/* Focused app in taskbar */
+/* =======================
+   Taskbar Windows
+   ======================= */
+#workspaces .taskbar-window {
+  background-color: transparent;
+  font-weight: normal;
+  transition: background-color 0.2s ease;
+}
+
+/* Active window inside visible workspace */
 #workspaces button.visible .taskbar-window.active {
-  background-color: rgba(121, 200, 247, 0.15);
-  color: black;
-  border: 1px solid white;
+  background-color: rgba(122, 162, 247, 0.25);
+  color: #FFFFFF;
+  border-radius: 4px;
+  padding: 0 2px;
 }
 
-/* Transparent images inside taskbar windows */
+/* Transparent icons */
 #workspaces .taskbar-window image {
   background-color: transparent;
 }
 
-/* Urgent window styling */
+/* =======================
+   Urgent Workspace
+   ======================= */
 #workspaces button.urgent {
-  background-color: lightyellow;
+  background-color: #F7768E;
+  color: #15161E;
+  border-color: #F7768E;
+  animation: urgent-pulse 1.5s infinite;
 }
 
+@keyframes urgent-pulse {
+  0%   { box-shadow: 0 0 0 0 rgba(247, 118, 142, 0.6); }
+  70%  { box-shadow: 0 0 0 6px rgba(247, 118, 142, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(247, 118, 142, 0); }
+}
 
+/* =======================
+   Right Modules
+   ======================= */
 .modules-right {
   font-family: "JetBrainsMono Nerd Font";
 }
 
 label.module {
-  margin-left: 5px;
-  margin-right: 5px;
-  background-color: #15161E;
-  padding-left: 10px;
-  padding-right: 10px;
-  border: 1px solid white;
-  border-radius: 3px;
+  margin: 0 4px;
+  background-color: rgba(21, 22, 30, 0.85);
+  padding: 2px 10px;
+  border-radius: 6px;
+  border: 1px solid rgba(122, 162, 247, 0.3);
+  transition: background-color 0.2s ease;
 }
 
+label.module:hover {
+  background-color: #363B55;
+  border-color: #7AA2F7;
+}
 
-/* Remove padding/margins */
+/* =======================
+   Sliders (Audio / Brightness)
+   ======================= */
 #pulseaudio-slider,
 #backlight-slider {
   padding: 0;
   margin: 0;
 }
 
-/* Hide the slider handle */
+/* Hide handle */
 #pulseaudio-slider slider,
 #backlight-slider slider {
   min-height: 1px;
   min-width: 1px;
   opacity: 0;
-  background-image: none;
-  border: none;
-  box-shadow: none;
 }
 
-/* Slider trough (background) */
+/* Trough */
 #pulseaudio-slider trough,
 #backlight-slider trough {
-  min-height: 10px;
-  min-width: 80px;
-  border-radius: 5px;
-  background: black;
+  min-height: 8px;
+  min-width: 90px;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.1);
 }
 
-/* Slider filled portion */
+/* Filled portion */
 #pulseaudio-slider highlight,
 #backlight-slider highlight {
-  min-width: 10px;
-  border-radius: 5px;
-  background: white;
+  border-radius: 6px;
+  background: linear-gradient(
+    90deg,
+    #7AA2F7,
+    #9ECE6A
+  );
 }

@@ -1,4 +1,6 @@
 configuration {
   terminal: "kitty";
+  font: "SF Compact Display 15";
 }
-@theme "/usr/share/rofi/themes/paper-float.rasi"
+
+@theme "/usr/share/rofi/themes/fullscreen-preview.rasi"

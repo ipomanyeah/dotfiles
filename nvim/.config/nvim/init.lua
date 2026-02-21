@@ -38,7 +38,8 @@ require("competitest").setup() -- to use default configuration
 require("compiler")
 require("overseer")
 require("cord")
+require("transparent")
 
 -- setup must be called before loading
 
-vim.cmd("colorscheme github_light_high_contrast")
+vim.cmd("colorscheme tokyonight-storm")
